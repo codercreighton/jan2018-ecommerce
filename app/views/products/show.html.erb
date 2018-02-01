@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<center>
+  <div class="well">
+    <div class="row">
+      <div class="col-lg-6">
+  <%=  image_tag @product.image, class: "show-pic" %>
+  <p>
+    <%= @product.name %>
+  </p>
+
+  <p>
+
+    <%= number_to_currency(@product.price) %>
+  </p>
+
+  <p>Current Stock:
+
+    <%= @product.quantity %>
+  </p>
+</div>
+<div class="col-lg-6">
+
+  <p>
+
+    <%= @product.description %>
+  </p>
+
+  <p>Made By: 
+
+    <%= @product.brand %>
+  </p>
+
+  <p>Rating: 
+
+    <%= @product.rating %>
+  </p>
+
+  <p>Located in: 
+
+    <%= @product.category.name %> section
+  </p>
+</div>
+</div>
+</div>
+
+<%= link_to 'Edit', edit_product_path(@product), class: "btn btn-info" %> |
+<%= link_to 'Back', products_path, class: "btn btn-primary" %>
+</center>
