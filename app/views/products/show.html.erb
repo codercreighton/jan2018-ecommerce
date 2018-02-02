@@ -4,46 +4,48 @@
   <div class="well">
     <div class="row">
       <div class="col-lg-6">
-  <%=  image_tag @product.image, class: "show-pic" %>
-  <p>
-    <%= @product.name %>
-  </p>
+        <%=  image_tag @product.image, class: "show-pic" %>
+        <p>
+          <%= @product.name %>
+        </p>
 
-  <p>
+        <p>
 
-    <%= number_to_currency(@product.price) %>
-  </p>
+          <%= number_to_currency(@product.price) %>
+        </p>
 
-  <p>Current Stock:
+        <p>Current Stock:
 
-    <%= @product.quantity %>
-  </p>
-</div>
-<div class="col-lg-6">
+          <%= @product.quantity %>
+        </p>
+      </div>
+      <div class="col-lg-6">
 
-  <p>
+        <p>
 
-    <%= @product.description %>
-  </p>
+          <%= @product.description %>
+        </p>
 
-  <p>Made By: 
+        <p>Made By: 
 
-    <%= @product.brand %>
-  </p>
+          <%= @product.brand %>
+        </p>
 
-  <p>Rating: 
+        <p>Rating: 
 
-    <%= @product.rating %>
-  </p>
+          <%= @product.rating %>
+        </p>
 
-  <p>Located in: 
+        <p>Located in: 
 
-    <%= @product.category.name %> section
-  </p>
-</div>
-</div>
-</div>
+          <%= @product.category.name %> section
+        </p>
+      </div>
+      </div>
+      </div>
 
-<%= link_to 'Edit', edit_product_path(@product), class: "btn btn-info" %> |
-<%= link_to 'Back', products_path, class: "btn btn-primary" %>
+      <% if can? :update, @product %>
+        <%= link_to 'Edit', edit_product_path(@product), class: "btn btn-info" %> |
+      <% end %>  
+      <%= link_to 'Back', root_path, class: "btn btn-primary" %>
 </center>
